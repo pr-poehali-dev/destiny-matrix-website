@@ -1,5 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Rubik:wght@300;400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Rubik:wght@300;400;500&family=Cinzel:wght@400;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -7,57 +6,57 @@
 
 @layer base {
   :root {
-    --background: 260 25% 98%;
-    --foreground: 260 30% 15%;
+    --background: 260 25% 8%;
+    --foreground: 260 30% 90%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 260 30% 15%;
+    --card: 260 25% 10%;
+    --card-foreground: 260 30% 90%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 260 30% 15%;
+    --popover: 260 25% 12%;
+    --popover-foreground: 260 30% 98%;
 
-    --primary: 250 87% 75%;
+    --primary: 250 87% 65%;
     --primary-foreground: 260 40% 98%;
 
-    --secondary: 260 10% 90%;
-    --secondary-foreground: 260 30% 15%;
+    --secondary: 260 40% 20%;
+    --secondary-foreground: 260 30% 98%;
 
-    --muted: 260 10% 90%;
-    --muted-foreground: 260 10% 40%;
+    --muted: 260 30% 20%;
+    --muted-foreground: 260 10% 70%;
 
-    --accent: 250 20% 90%;
-    --accent-foreground: 260 30% 15%;
+    --accent: 250 40% 30%;
+    --accent-foreground: 260 30% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 260 15% 85%;
-    --input: 260 15% 85%;
-    --ring: 250 87% 75%;
+    --border: 260 30% 25%;
+    --input: 260 30% 25%;
+    --ring: 250 87% 65%;
 
-    --radius: 0.8rem;
+    --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-background: 260 25% 12%;
+    --sidebar-foreground: 240 5.3% 96.1%;
+    --sidebar-primary: 250 87% 65%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 240 30% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 30% 25.9%;
+    --sidebar-ring: 250 87% 65%;
   }
 
-  .dark {
-    --background: 260 30% 10%;
+  .light {
+    --background: 260 15% 15%;
     --foreground: 260 30% 98%;
 
-    --card: 260 25% 12%;
+    --card: 260 20% 20%;
     --card-foreground: 260 30% 98%;
 
     --popover: 260 25% 12%;
     --popover-foreground: 260 30% 98%;
 
-    --primary: 250 87% 75%;
+    --primary: 250 87% 65%;
     --primary-foreground: 260 40% 10%;
 
     --secondary: 260 20% 20%;
@@ -74,7 +73,7 @@
 
     --border: 260 25% 25%;
     --input: 260 25% 25%;
-    --ring: 250 87% 75%;
+    --ring: 250 87% 65%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -93,11 +92,35 @@
   }
 
   body {
-    @apply bg-background text-foreground font-rubik;
+    @apply bg-background text-foreground font-cinzel;
+    background-image: url("/bg-occult.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-blend-mode: overlay;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-montserrat font-semibold;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-cinzel font-semibold;
+  }
+
+  /* Скрываем scrollbar для Chrome, Safari и Opera */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(128, 90, 213, 0.6);
+    border-radius: 3px;
   }
 }
 
@@ -106,47 +129,149 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 0.5rem;
-}
-
-.matrix-cell {
-  @apply flex items-center justify-center bg-white dark:bg-slate-800 rounded-lg p-4 shadow-md transition-all duration-300;
-  min-height: 60px;
+  background-image: url("/pentagram.svg");
+  background-size: 95%;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 1rem;
   position: relative;
 }
 
+.matrix-grid::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/alchemical-symbols.svg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.15;
+  pointer-events: none;
+  animation: slowRotate 120s linear infinite;
+}
+
+.matrix-cell {
+  @apply flex items-center justify-center rounded-md p-4 shadow-lg transition-all duration-300;
+  min-height: 60px;
+  position: relative;
+  background: rgba(20, 14, 40, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(138, 75, 175, 0.3);
+  box-shadow: 0 0 15px rgba(149, 46, 191, 0.2);
+}
+
 .matrix-cell.active {
-  @apply bg-destiny-softPurple dark:bg-destiny-vividPurple/30 border-2 border-destiny-purple;
+  @apply border-2 border-destiny-purple;
+  background: rgba(36, 22, 63, 0.85);
+  box-shadow: 0 0 10px rgba(149, 46, 191, 0.5);
+}
+
+.matrix-cell.active::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(
+    45deg,
+    rgba(149, 46, 191, 0),
+    rgba(149, 46, 191, 0.3),
+    rgba(149, 46, 191, 0)
+  );
+  z-index: -1;
+  border-radius: inherit;
+  animation: pulse 2s infinite alternate;
 }
 
 .matrix-value {
   @apply text-xl md:text-2xl font-bold text-destiny-purple;
   position: relative;
   z-index: 10;
+  text-shadow: 0 0 5px rgba(180, 90, 255, 0.5);
 }
 
 .matrix-energy {
-  @apply text-xs text-gray-600 dark:text-gray-300 absolute bottom-1 right-1 text-center;
+  @apply text-xs text-gray-400 absolute bottom-1 right-1 text-center;
 }
 
 .destiny-input {
-  @apply border-2 border-destiny-purple/30 focus:border-destiny-purple rounded-lg p-3 text-base w-full;
+  @apply border-2 border-destiny-purple/30 focus:border-destiny-purple rounded-md p-3 text-base w-full;
   transition: all 0.3s ease;
+  background: rgba(26, 21, 46, 0.7);
+  box-shadow: 0 0 10px rgba(149, 46, 191, 0.2) inset;
 }
 
 .cosmic-bg {
-  @apply bg-gradient-to-b from-destiny-softPurple/30 to-transparent;
-  background-size: 200% 200%;
-  animation: gradientAnimation 15s ease infinite;
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 21, 46, 0.95),
+    rgba(26, 21, 46, 0.8)
+  );
+  position: relative;
+  overflow: hidden;
 }
 
-@keyframes gradientAnimation {
-  0% { background-position: 0% 0%; }
-  50% { background-position: 100% 100%; }
-  100% { background-position: 0% 0%; }
+.cosmic-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/stars.svg");
+  background-size: cover;
+  opacity: 0.2;
+  animation: slowFloat 60s linear infinite;
+  pointer-events: none;
 }
 
 .result-appear {
-  animation: appear 0.5s ease-out;
+  animation: appear 0.8s ease-out;
+}
+
+.occult-divider {
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(149, 46, 191, 0),
+    rgba(149, 46, 191, 0.7),
+    rgba(149, 46, 191, 0)
+  );
+  width: 100%;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.occult-divider::before {
+  content: "✧";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(180, 90, 255, 0.8);
+  background: var(--background);
+  padding: 0 1rem;
+  font-size: 1.2rem;
+}
+
+.ritual-circle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: url("/ritual-circle.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.08;
+  pointer-events: none;
+  animation: slowRotate 180s linear infinite reverse;
+  z-index: 0;
 }
 
 @keyframes appear {
@@ -157,5 +282,99 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes slowRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slowFloat {
+  from {
+    transform: translateY(0%) translateX(0%);
+  }
+  to {
+    transform: translateY(-5%) translateX(-5%);
+  }
+}
+
+.mystical-header {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  background: linear-gradient(to right, #9b87f5, #b066d6, #9b87f5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: shine 5s linear infinite;
+  position: relative;
+  display: inline-block;
+}
+
+.mystical-header::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px rgba(155, 135, 245, 0.5);
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.interpretation-card {
+  background: rgba(26, 21, 46, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(138, 75, 175, 0.3);
+  box-shadow: 0 0 15px rgba(149, 46, 191, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.interpretation-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/runes.svg");
+  background-size: 300px;
+  background-repeat: repeat;
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+.floating {
+  animation: floating 6s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }

@@ -1,0 +1,24 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" fill="none" stroke="rgba(149, 46, 191, 0.5)">
+  <circle cx="150" cy="150" r="140" stroke-width="0.5" />
+  <circle cx="150" cy="150" r="120" stroke-width="0.5" />
+  <circle cx="150" cy="150" r="100" stroke-width="0.5" />
+  <path d="M150 10 L150 290" stroke-width="0.2" />
+  <path d="M10 150 L290 150" stroke-width="0.2" />
+  <path d="M30 30 L270 270" stroke-width="0.2" />
+  <path d="M30 270 L270 30" stroke-width="0.2" />
+  <path d="M75 20 L225 280" stroke-width="0.2" />
+  <path d="M75 280 L225 20" stroke-width="0.2" />
+  <path d="M20 75 L280 225" stroke-width="0.2" />
+  <path d="M20 225 L280 75" stroke-width="0.2" />
+  
+  <!-- Символы по кругу -->
+  <text x="145" y="20" fill="rgba(149, 46, 191, 0.4)" font-family="serif" font-size="8">♄</text>
+  <text x="270" y="150" fill="rgba(149, 46, 191, 0.4)" font-family="serif" font-size="8">♃</text>
+  <text x="145" y="280" fill="rgba(149, 46, 191, 0.4)" font-family="serif" font-size="8">♂</text>
+  <text x="20" y="150" fill="rgba(149, 46, 191, 0.4)" font-family="serif" font-size="8">☿</text>
+  <text x="50" y="50" fill="rgba(149, 46, 191, 0.4)" font-family="serif" font-size="8">☽</text>
+  <text x="250" y="50" fill="rgba(149, 46, 191, 0.4)" font-family="serif" font-size="8">☼</text>
+  <text x="250" y="250" fill="rgba(149, 46, 191, 0.4)" font-family="serif" font-size="8">♀</text>
+  <text x="50" y="250" fill="rgba(149, 46, 191, 0.4)" font-family="serif" font-size="8">♆</text>
+</svg>
